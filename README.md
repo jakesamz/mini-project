@@ -1,6 +1,6 @@
-# my-project
+# mini-project
 
-> first vue project
+> A mini vue-based project for testing out vue framework features...
 
 ## Build Setup
 
