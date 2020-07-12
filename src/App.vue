@@ -1,19 +1,9 @@
 <template>
   <div id="app">
-    <!-- <h1>HomePage</h1>
-    <p>
-      <router-link to="/emails">email</router-link>
-      <router-link to="/profile">profile</router-link>
-      <router-link to="/mymenu">mymenu</router-link>
-    </p> -->
-    <!-- 路由出口 -->
-    <!-- 路由匹配到的组件将渲染在这里 -->
-    <!-- <router-view name="header"></router-view>
+    <h1>This is App...</h1>
+    <p>Below is App's router-view</p>
     <router-view></router-view>
-    <router-view name="sidebar"></router-view> -->
-    <!-- 
-    <router-view name="user"></router-view> -->
-    <router-view></router-view>
+    <!-- <router-view class="view one" name="a"></router-view> -->
   </div>
 </template>
 
@@ -65,8 +55,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
+  border: 1px solid lightgrey;
 }
-img {
-  /* width: 100%; */
-}
+
 </style>

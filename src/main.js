@@ -30,11 +30,14 @@ const store = new Vuex.Store({
   }
 })
 
-// store.commit('increment')
-
-// console.log(store.state.mycount)
-
-// console.log('App', App);
+//全局前置守卫
+router.beforeEach((to, from, next) => {
+  // ...
+  // console.log('全局前置守卫', to);
+  // console.log('全局前置守卫', from);
+  // console.log('全局前置守卫', next);
+  next();
+})
 
 Vue.component('alert-box', {
   template: `
@@ -52,9 +55,8 @@ let vx = new Vue({
   router,
   components: { App },
   template: '<App/>',
-  data() {
-    return {msg: 'xxxx'}
-  },
+});
+
 
   // beforeCreate(){
   //   console.group("%c%s","color:red",'beforeCreate--实例创建前状态')
@@ -128,6 +130,3 @@ let vx = new Vue({
   //   console.log("%c%s","color:blue","data  :"+this.$data)
   //   console.log("%c%s","color:blue","message  :"+this.msg)
   // },
-});
-
-// vx.main = 'I just updated main to stu';
