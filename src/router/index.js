@@ -11,11 +11,11 @@ export default new Router({
     return { x: 0, y: 0 }
   },
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Home',
-    //   component: Test,
-    // },
+    {
+      path: '/',
+      name: 'Home',
+      component: Test,
+    },
     {//测试嵌套路由....
       path: '/user/:id', //访问/user匹配不到 可以访问/user/a, /user/b
       component: () => import('@/components/test-router/test-nested-routes/User'),//User 对应 App 里边的 <router-view>
