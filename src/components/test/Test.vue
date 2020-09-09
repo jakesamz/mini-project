@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div id="test">
   <!-- <router-link to="/custom">Test v-model</router-link>
     <router-link to="/watch-immediate">Test watch-immediate</router-link>
     <router-link to="/emit">Test emit</router-link>
@@ -7,11 +7,13 @@
   <router-link to="/async-compnt">Test Async-component</router-link>-->
   <el-button type="primary" size="mini" @click="toggle('CustomDir')">自定义指令</el-button>
   <el-button type="primary" size="mini" @click="toggle('MessagePlugin')">消息插件</el-button>
-  <el-button type="primary" size="mini" @click="toggle('Updated')">声明周期Updated</el-button>
-  <!-- <el-button type="primary" size="mini" @click="toggle('Table')">Table</el-button> -->
-  <keep-alive>
-   <component :is="compnt"></component>
-  </keep-alive>
+  <el-button type="primary" size="mini" @click="toggle('BeforeUpdate')">声明周期 hook - BeforeUpdate</el-button>
+  <el-button type="primary" size="mini" @click="toggle('Updated')">生命周期 hook - Updated</el-button>
+  <div class="comp">
+    <keep-alive>
+      <component :is="compnt"></component>
+    </keep-alive>
+  </div>
  </div>
 </template>
 
@@ -19,10 +21,11 @@
 import CustomDir from './test-dir/CustomDir'
 import MessagePlugin from './test-plugins/MessagePlugin';
 import Updated from './test-lifecircle-hooks/Updated';
+import BeforeUpdate from './test-lifecircle-hooks/BeforeUpdate';
 
 export default {
  name: "App",
- components: {CustomDir, MessagePlugin, Updated},
+ components: {CustomDir, MessagePlugin, Updated, BeforeUpdate},
  data() {
   return {
    compnt: 'MessagePlugin',
@@ -37,4 +40,14 @@ export default {
 </script>
 
 <style>
+  #test {
+    border: 1px solid lightgrey;
+  }
+
+  .comp {
+
+    border: 1px solid orange;
+    height: 500px;
+    padding-top: 100px;
+  }
 </style>

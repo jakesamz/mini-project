@@ -182,6 +182,10 @@ export default {
     //   this.person.fullName = this.person.firstName + ' ' + this.person.lastName;
     //   return;
     // }
+    name() {
+      let result = data.find(item => item.id == 1);
+      return result.name
+    }
   }
 }
 </script>
