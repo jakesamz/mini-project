@@ -5,7 +5,7 @@ import Test from '@/components/test/Test'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   //滚动...
   scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
