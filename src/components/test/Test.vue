@@ -9,6 +9,8 @@
   <el-button type="primary" size="mini" @click="toggle('MessagePlugin')">消息插件</el-button>
   <el-button type="primary" size="mini" @click="toggle('BeforeUpdate')">声明周期 hook - BeforeUpdate</el-button>
   <el-button type="primary" size="mini" @click="toggle('Updated')">生命周期 hook - Updated</el-button>
+  <el-button type="primary" size="mini" @click="toggle('UseSlot')">插槽-slot</el-button>
+
   <div class="comp">
     <keep-alive>
       <component :is="compnt"></component>
@@ -22,13 +24,14 @@ import CustomDir from './test-dir/CustomDir'
 import MessagePlugin from './test-plugins/MessagePlugin';
 import Updated from './test-lifecircle-hooks/Updated';
 import BeforeUpdate from './test-lifecircle-hooks/BeforeUpdate';
+import UseSlot from './test-slot/UseSlot';
 
 export default {
  name: "App",
- components: {CustomDir, MessagePlugin, Updated, BeforeUpdate},
+ components: {CustomDir, MessagePlugin, Updated, BeforeUpdate, UseSlot},
  data() {
   return {
-   compnt: 'MessagePlugin',
+   compnt: 'UseSlot',
   }
  },
  methods: {
