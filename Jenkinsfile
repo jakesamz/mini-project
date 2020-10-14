@@ -70,35 +70,6 @@ pipeline {
         sh 'yarn install'
       }
     }
-    stage('Static check') {
-      parallel {
-        stage('eslint') {
-          steps {
-            echo 'eslint'
-          }
-        }
-      }
-    }
-    stage('YARN build') {
-      steps {
-        sh 'yarn build:gray'
-      }
-    }
-    stage('Product') {
-      steps {
-        dir("${env.WORKSPACE}/dist") {
-          sh "tar -zcvf ${env.WORKSPACE}/${_productFileName} ./"
-        }
-
-        archiveArtifacts(
-          artifacts: '*.tar.gz', // 字符串类型，需要归档的文件路径，使用的是Ant风格路径表达式。
-          // excludes: '', // 字符串类型，需要排除的文件路径，使用的也是Ant风格路径表达式。
-          caseSensitive: true, // 布尔类型，对路径大小写是否敏感。
-          fingerprint: true, // 布尔类型，是否对归档的文件进行签名。
-          onlyIfSuccessful: true // 布尔类型，只在构建成功时进行归档。
-        )
-      }
-    }
   }
 }
 
