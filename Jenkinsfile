@@ -39,7 +39,6 @@ pipeline {
       parallel {
         stage('Env') {
           steps {
-            bat 'printenv'
             echo "系统当前用户      [${env.USER}]"
             echo "JENKINS_URL     [${env.JENKINS_URL}]"
             echo "WORKSPACE       [${env.WORKSPACE}]"
