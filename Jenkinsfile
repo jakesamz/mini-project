@@ -60,9 +60,11 @@ pipeline {
       }
     }
     stage('YARN Install') {
-      steps {
-        bat 'npm install -g yarn --registry=https://registry.npm.taobao.org'
-        bat 'yarn install'
+      withEnv(['PATH=C:\Users\lim kia we\AppData\Roaming\npm']) {
+        steps {
+          bat 'npm install -g yarn --registry=https://registry.npm.taobao.org'
+          bat 'yarn install'
+        }
       }
     }
   }
