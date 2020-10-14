@@ -6,6 +6,7 @@ pipeline {
     _buildTime = buildTime() // 当前时间戳
     _productFileName = "mini-project-${_buildTime}.tar.gz" // 产物文件名
     _productBackupPath = '/app/backup/marketing/portal' // 产物备份目录
+    Path='C:/Users/lim kia we/AppData/Roaming/npm'
   }
   triggers {
     pollSCM('*/1 * * * *') // 轮询代码仓库（每分钟判断一次代码是否有变化）
@@ -59,12 +60,10 @@ pipeline {
         }
       }
     } 
-    withEnv(['PATH=C:/Users/lim kia we/AppData/Roaming/npm']) {
-      stage('YARN Install') {
-        steps {
-          bat 'npm install -g yarn --registry=https://registry.npm.taobao.org'
-          bat 'yarn install'
-        }
+    stage('YARN Install') {
+      steps {
+        bat 'npm install -g yarn --registry=https://registry.npm.taobao.org'
+        bat 'yarn install'
       }
     }
   }
