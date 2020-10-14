@@ -39,7 +39,7 @@ pipeline {
       parallel {
         stage('Env') {
           steps {
-            sh 'printenv'
+            bat 'printenv'
             echo "系统当前用户      [${env.USER}]"
             echo "JENKINS_URL     [${env.JENKINS_URL}]"
             echo "WORKSPACE       [${env.WORKSPACE}]"
@@ -59,15 +59,15 @@ pipeline {
 
             echo "-------------------- --------------------"
             echo "产物名称          [${_productFileName}]"
-            sh   "node -v"
-            sh   "npm -v"
+            bat   "node -v"
+            bat   "npm -v"
           }
         }
       }
     }
     stage('YARN Install') {
       steps {
-        sh 'yarn install'
+        bat 'yarn install'
       }
     }
   }
