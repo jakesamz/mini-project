@@ -29,11 +29,6 @@ pipeline {
       activity: true // 布尔类型，true时 只有当日志没活动才算真正的超时
     )
   }
-  post {
-    always { // 不论当前完成状态是什么，都执行
-      cleanWs() // 清理工作空间插件[Workspace Cleanup Plugin](https://plugins.jenkins.io/ws-cleanup)
-    }
-  }
   stages {
     stage('Env & Param') {
       parallel {
