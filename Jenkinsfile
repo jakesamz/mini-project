@@ -59,9 +59,14 @@ pipeline {
         }
       }
     } 
-    stage('YARN Install') {
+    stage('NPM Install') {
       steps {
         bat 'npm install --registry=https://registry.npm.taobao.org'
+      }
+    }
+    stage('NPM build') {
+      steps {
+        bat 'npm run build'
       }
     }
   }
