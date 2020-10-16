@@ -29,6 +29,11 @@ pipeline {
       activity: true // 布尔类型，true时 只有当日志没活动才算真正的超时
     )
   }
+  post {
+    always { // 不论当前完成状态是什么，都执行
+      echo "---------------------- post always -------------------"
+    }
+  }
   stages {
     stage('Env & Param') {
       parallel {
